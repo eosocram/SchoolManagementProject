@@ -1,4 +1,4 @@
-﻿using Entity;
+﻿using Models;
 
 namespace Management
 {
@@ -6,48 +6,57 @@ namespace Management
     {
         static void Main(string[] args)
         {
-            Funcionario funcionario = new Funcionario();
-            Console.Write("Digite o seu nome:");
-            funcionario.Nome = Console.ReadLine() ?? "";
+            Console.WriteLine("----------PORTAL COLÉGIO FUTURO MELHOR----------");
+            Console.WriteLine("Escolha a opção desejada: 1 - ESPAÇO DO COLABORADOR");
+            int menu = int.Parse(Console.ReadLine());
 
-            Console.Write($"{funcionario.Nome} digite o seu CPF:");
-            string inputCPF = Console.ReadLine() ?? "";
-            if (long.TryParse(inputCPF, out long cpf))
+            switch (menu)
             {
-                funcionario.RegistroUnico = cpf;
-            }
-            else
-            {
-                Console.WriteLine("CPF inválido.");
-            }
 
-            Console.Write($"{funcionario.Nome} digite a data do seu nascimento:");
-            string inputData = Console.ReadLine() ?? "";
-            if (DateTime.TryParse(inputData, out DateTime dataNascimento))
-            {
-                funcionario.DataNascimento = dataNascimento;
+                case 1:
+                    Console.WriteLine("-----------ESPAÇO DO COLABORADOR-----------");
+
+                    Funcionario funcionario = new Funcionario();
+
+                    try
+                    {
+                        Console.Write("Digite o seu nome:");
+                        funcionario.Nome = Console.ReadLine()?.Trim();
+
+                        if (string.IsNullOrEmpty(funcionario.Nome))
+                        {
+                            throw new Exception("Nome não pode ser nulo.");
+                        }
+                        if (funcionario.Nome.Any(char.IsDigit))
+                        {
+                            throw new Exception("Nome não pode conter números.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine($"ERROR: {ex.Message}");
+                        return;
+                    }
+
+                    try
+                    {
+                        Console.Write($"{funcionario.Nome} digite o seu CPF:");
+                        string inputCpf = Console.ReadLine()?.Trim();
+
+                        if (!long.TryParse(inputCpf, out long cpf) || inputCpf.Length != 11)
+                        {
+                            throw new Exception("CPF inválido. Deve conter 11 números");
+                        }
+                        funcionario.RegistroUnico = long.Parse(inputCpf);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR: {ex.Message}");
+                        return;
+                    }
+                    break;
                 
-            }
-            else
-            {
-                Console.WriteLine("Data de nascimento inválida.");
-            }
-
-
-            Console.Write($"{funcionario.Nome} digite o seu endereço:");
-            funcionario.Endereco = Console.ReadLine() ?? "";
-
-            Console.Write("Quando você entrou no seu emprego atual?");
-            
-            if (DateTime.TryParse(Console.ReadLine(), out DateTime anoAdmissao))
-            {
-                funcionario.DataAdmissao = anoAdmissao;
-                Console.WriteLine($"Você entrou no emprego em: {funcionario.DataAdmissao.Year}");
-                funcionario.TempodeContribuicao();
-            }
-            else
-            {
-                Console.WriteLine("Data inválida.");
             }
         }
     }
