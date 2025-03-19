@@ -6,57 +6,36 @@ namespace Management
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("----------PORTAL COLÉGIO FUTURO MELHOR----------");
-            Console.WriteLine("Escolha a opção desejada: 1 - ESPAÇO DO COLABORADOR");
-            int menu = int.Parse(Console.ReadLine());
-
-            switch (menu)
+            try
             {
+                Console.WriteLine("----------PORTAL COLÉGIO FUTURO MELHOR----------");
+                Console.WriteLine("Acesse: 1 - ESPAÇO DO COLABORADOR");
+                string? inputMenu = Console.ReadLine()?.Trim();
+                if (int.TryParse(inputMenu, out int menu))
+                {
+                    Console.WriteLine($"{menu} - BEM VINDO AO ESPAÇO DO COLABORADOR.");
+                }
+                else
+                {
+                    Console.WriteLine("Número ou carácter não permitido!");
+                }
 
-                case 1:
-                    Console.WriteLine("-----------ESPAÇO DO COLABORADOR-----------");
+                switch (menu)
+                {
 
-                    Funcionario funcionario = new Funcionario();
+                    case 1:
+                        Funcionario funcionario = new Funcionario();
+                        funcionario.LoginFuncionario();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        break;
 
-                    try
-                    {
-                        Console.Write("Digite o seu nome:");
-                        funcionario.Nome = Console.ReadLine()?.Trim();
-
-                        if (string.IsNullOrEmpty(funcionario.Nome))
-                        {
-                            throw new Exception("Nome não pode ser nulo.");
-                        }
-                        if (funcionario.Nome.Any(char.IsDigit))
-                        {
-                            throw new Exception("Nome não pode conter números.");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                        Console.WriteLine($"ERROR: {ex.Message}");
-                        return;
-                    }
-
-                    try
-                    {
-                        Console.Write($"{funcionario.Nome} digite o seu CPF:");
-                        string inputCpf = Console.ReadLine()?.Trim();
-
-                        if (!long.TryParse(inputCpf, out long cpf) || inputCpf.Length != 11)
-                        {
-                            throw new Exception("CPF inválido. Deve conter 11 números");
-                        }
-                        funcionario.RegistroUnico = long.Parse(inputCpf);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"ERROR: {ex.Message}");
-                        return;
-                    }
-                    break;
-                
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
