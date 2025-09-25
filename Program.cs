@@ -1,72 +1,38 @@
-﻿using Models;
+﻿using Management.Models;
 using System.Globalization;
-using System.Runtime.InteropServices.JavaScript;
+using Management.Models.Repositories;
+using Management.Services;
 
-namespace SchoolManagement
-{
+namespace Management;
+
     class Program
     {
         static void Main()
         {
-            
-                Console.WriteLine("Digite o número de mátricula:");
-                int matricula = Convert.ToInt32(Console.ReadLine());
 
-                DateTime dataRecisao = DateTime.MinValue;
-                DateTime dataAdmissao = DateTime.MinValue;
-                
-                bool dataAdmissaoValida = false;
-                bool dataRecisaoValida = false;
-                
-                while (!dataAdmissaoValida)
-                {
-                    string format = "MM/yyyy";
-                    var culture = CultureInfo.CreateSpecificCulture("pt-BR");
+            Console.WriteLine("======PORTAL GESTEDUCA+======");
+            Console.WriteLine("1 - COLABORADOR | 2 - PROFESSOR"); 
+            int opcao = Convert.ToInt16(Console.ReadLine());
 
-                    try
-                    {
-                        Console.WriteLine("Digite sua data de admissão, inserindo - MÊS/ANO:");
-                        string inputDataAdmissao = Console.ReadLine();
-                        dataAdmissao = DateTime.ParseExact(inputDataAdmissao, format, culture);
-                        Console.WriteLine($"Data de Admissão: {inputDataAdmissao}");
-
-                        dataAdmissaoValida = true;
-                    }
-                    catch
-                    {
-                        Console.WriteLine("ERRO - Tipo de formatação inválida [DATA DE ADMISSÃO]");
-                    }
-                        
-
-
-                }
-
-                while (!dataRecisaoValida)
-                {
-                    try
-                    { 
-                        string format = "MM/yyyy";
-                        var culture = CultureInfo.CreateSpecificCulture("pt-BR");
-                        
-                        Console.WriteLine($"Digite o período final de trabalho, inserindo MÊS/ANO");
-                        string inputDataRecisao = Console.ReadLine();
-                        dataRecisao = DateTime.ParseExact(inputDataRecisao, format, culture); 
-                        Console.WriteLine($"Data Final de trabalho: {inputDataRecisao}");
-                        
-                        dataRecisaoValida = true;
-                    }
-                    catch 
-                    {
-                        Console.WriteLine("ERRO - Tipo de formatação inválida [DATA DE RECISÃO]"); 
-                    }
-                }
-                Funcionario testUser = new Funcionario(matricula, dataAdmissao, dataRecisao);
-
-                testUser.TempoDeServico();
-            
-         
-            
+            string matricula = "";
+            switch (opcao)
+            {
+                case 1:
+                    
+                    var repoProfessor = new ProfessorRepository();
+                    var serviceProfessor = new ProfessorService(repoProfessor);
+                    
+                    Console.WriteLine("=====Acesso do PROFESSOR=====");
+                    
+                    serviceProfessor.LimiteHoraSemanal();
+                    
+                    // serviceProfessor.ExibirDadoProfessor();
+                    // serviceProfessor.RegistrarAula();
+                    // var p = repoProfessor.GetByMatricula(matricula);
+                    // Console.WriteLine($"Carga horária depois: {p.CargaHorariaSemanal} horas");
+                    // repoProfessor.GetAll().ForEach(p => Console.WriteLine(p.TurmasAssociadas));
+                    break;
+            }
 
         }
     }
-}

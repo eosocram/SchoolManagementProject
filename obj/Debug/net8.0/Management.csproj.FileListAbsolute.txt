@@ -1,0 +1,15 @@
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/bin/Debug/net8.0/Management
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/bin/Debug/net8.0/Management.deps.json
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/bin/Debug/net8.0/Management.runtimeconfig.json
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/bin/Debug/net8.0/Management.dll
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/bin/Debug/net8.0/Management.pdb
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.GeneratedMSBuildEditorConfig.editorconfig
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.AssemblyInfoInputs.cache
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.AssemblyInfo.cs
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.csproj.CoreCompileInputs.cache
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.sourcelink.json
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.dll
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/refint/Management.dll
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.pdb
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/Management.genruntimeconfig.cache
+/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/obj/Debug/net8.0/ref/Management.dll

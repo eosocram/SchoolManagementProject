@@ -1,5 +1,5 @@
-namespace Models
-{
+namespace Management.Models;
+
     public abstract class Pessoa
     {
         public string Nome { get; set; } = string.Empty;
@@ -7,4 +7,3 @@ namespace Models
         public DateTime DataDeNascimento { get; set; }
         public string Endereco { get; set; } = string.Empty;
     }
-}
