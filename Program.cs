@@ -18,20 +18,17 @@ namespace Management;
             switch (opcao)
             {
                 case 1:
-                    
                     var repoProfessor = new ProfessorRepository();
-                    var serviceProfessor = new ProfessorService(repoProfessor);
-                    
-                    Console.WriteLine("=====Acesso do PROFESSOR=====");
-                    
-                    serviceProfessor.LimiteHoraSemanal();
-                    
-                    // serviceProfessor.ExibirDadoProfessor();
-                    // serviceProfessor.RegistrarAula();
-                    // var p = repoProfessor.GetByMatricula(matricula);
-                    // Console.WriteLine($"Carga horária depois: {p.CargaHorariaSemanal} horas");
-                    // repoProfessor.GetAll().ForEach(p => Console.WriteLine(p.TurmasAssociadas));
-                    break;
+                    Professor professor = repoProfessor.GetByMatricula("PR0410");
+                    if (professor != null)
+                    {
+                        Console.WriteLine(professor.TeacherServiceTime());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Professor não encontrado!");
+                    }
+                    break;       
             }
 
         }
