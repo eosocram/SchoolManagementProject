@@ -2,5 +2,5 @@ namespace Management.Interface;
 
 public interface IRepositoryMatricula<T>
 {
-    T? GetByMatricula(string matricula);
+    T? GetByMatricula(string enrollment);
 }

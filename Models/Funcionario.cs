@@ -2,20 +2,20 @@ namespace Management.Models;
 
     public class Funcionario : Pessoa
     {
-        public string Matricula { get; set; }
+        public string Enrollment { get; set; }
         public string Cargo { get; set; }
         public decimal Salario { get; set; }
         public DateTime AdmissionDate { get; private set; }
-        public DateTime? TerminationDate { get; set; }
+        public DateTime? LastDay{ get; set; }
 
-        public Funcionario(string matricula, string cargo, DateTime admissionDate)
+        public Funcionario(string enrollment, string cargo, DateTime admissionDate)
         {
-            Matricula = matricula;
+            Enrollment = enrollment;
             Cargo = cargo;
             
             if (AdmissionDate > DateTime.Now)
             {
-                throw new ArgumentException("Data de admissão não pode estar no futuro!");
+                throw new ArgumentException("Não existe registro de admissão no futuro!");
             }
             AdmissionDate = admissionDate;
         }

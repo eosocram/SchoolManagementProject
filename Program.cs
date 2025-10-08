@@ -11,7 +11,7 @@ namespace Management;
         {
 
             Console.WriteLine("======PORTAL GESTEDUCA+======");
-            Console.WriteLine("1 - COLABORADOR | 2 - PROFESSOR"); 
+            Console.WriteLine("1 - TEACHER | 2 - BUILDING"); 
             int opcao = Convert.ToInt16(Console.ReadLine());
 
             string matricula = "";
@@ -20,14 +20,16 @@ namespace Management;
                 case 1:
                     var repoProfessor = new ProfessorRepository();
                     Professor professor = repoProfessor.GetByMatricula("PR0410");
+                    
                     if (professor != null)
                     {
-                        Console.WriteLine(professor.TeacherServiceTime());
+                        Console.WriteLine(professor.CalculateTeacherServiceTime());
                     }
                     else
                     {
-                        Console.WriteLine("Professor não encontrado!");
+                        throw new ("Teacher not found!");
                     }
+                    
                     break;       
             }
 
