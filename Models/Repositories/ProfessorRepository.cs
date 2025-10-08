@@ -2,7 +2,7 @@ using Management.Interface;
 
 namespace Management.Models.Repositories;
 
-public class ProfessorRepository : IRepositoryMatricula<Professor>
+public class ProfessorRepository : IEnrollmentRepository<Professor>
 {
     private readonly List<Professor> _professores = new()
     {
