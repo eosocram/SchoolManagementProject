@@ -18,18 +18,21 @@ namespace Management;
             switch (opcao)
             {
                 case 1:
-                    var repoProfessor = new ProfessorRepository();
-                    Professor professor = repoProfessor.GetByMatricula("PR0410");
-                    
-                    if (professor != null)
-                    {
-                        Console.WriteLine(professor.CalculateTeacherServiceTime());
-                    }
-                    else
-                    {
-                        throw new ("Teacher not found!");
-                    }
-                    
+                    // var repoProfessor = new ProfessorRepository();
+                    // Teacher teacher = repoProfessor.GetByMatricula("PR0410");
+                    //
+                    // if (teacher != null)
+                    // {
+                    //     Console.WriteLine(teacher.CalculateTeacherServiceTime());
+                    // }
+                    // else
+                    // {
+                    //     throw new ("Teacher not found!");
+                    // }
+                    //
+
+                    Student testStudent = new Student();
+                    testStudent.StatusStudent();
                     break;       
             }
 
