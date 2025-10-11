@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Vxcmcwza50Q=",
+  "dgSpecHash": "fo1U8Jf0lAs=",
   "success": true,
-  "projectFilePath": "C:\\Dev\\Management\\Management.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/usuario/RiderProjects/SchoolManagement/SchoolManagementProject/Management.csproj",
+  "expectedPackageFiles": [
+    "/home/usuario/.nuget/packages/microsoft.netcore.app.ref/8.0.20/microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
+    "/home/usuario/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
+    "/home/usuario/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.20/microsoft.netcore.app.host.linux-x64.8.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
